@@ -26,6 +26,7 @@ var photoInterval = 6000;
 // check added images for dupliactes in list
 // randomize/shuffle image order
 // enable disable image updates in admin console
+// edit shutdown time config
 // manage images in admin
 // brightness on certain times
 // photo transision
