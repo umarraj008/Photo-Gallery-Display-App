@@ -6,10 +6,12 @@ var fadeDelay = "0.3s";
 // socket events
 socket.on("connect", function() {
     console.log("Connected to Server");
+    document.getElementById("notConnectedContainer").style.display = "none";
 });
 
 socket.on("disconnect", function() {
     console.log("Disconnected to Server");
+    document.getElementById("notConnectedContainer").style.display = "flex";
 });
 
 socket.on("refresh", function() {
