@@ -1,3 +1,7 @@
+# Images
+public/images/*
+!public/images/.gitkeep
+
 # Logs
 logs
 *.log

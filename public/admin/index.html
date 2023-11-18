@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js" integrity="sha512-zoJXRvW2gC8Z0Xo3lBbao5+AS3g6YWr5ztKqaicua11xHo+AvE1b0lT9ODgrHTmNUxeCw0Ry4BGRYZfXu70weg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="./admin.js"></script>
+        <link rel="stylesheet" href="./admin.css">
+    </head>
+    <body>
+        <h1>Admin</h1>
+        <button onclick="refresh()">Refresh</button>
+        <button onclick="adminRefresh()">Admin Refresh</button>
+        <button onclick="stop()">Stop Server</button>
+        <button onclick="location.href='../'">Open Controller</button>
+        <button onclick="location.href='../viewer'">Open Viewer</button>
+        <iframe src="http://192.168.1.110:8080/viewer" title="Viewer"></iframe>
+        <textarea id="output" readonly></textarea>
+    </body>
+</html>
