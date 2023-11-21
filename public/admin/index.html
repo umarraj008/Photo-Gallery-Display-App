@@ -8,12 +8,14 @@
     </head>
     <body>
         <h1>Admin</h1>
+        <h2 id="projectVersion"></h2>
         <button onclick="refresh()">Refresh</button>
         <button onclick="adminRefresh()">Admin Refresh</button>
+        <button onclick="restartServer()">Restart Server</button>
         <button onclick="stop()">Stop Server</button>
         <button onclick="window.open('../', '_blank');">Open Controller</button>
         <button onclick="window.open('../viewer', '_blank');">Open Viewer</button>
-        <iframe src="http://192.168.1.110:8080/viewer" title="Viewer"></iframe>
+        <iframe src="http://192.168.1.110:3030/viewer" title="Viewer"></iframe>
         <textarea id="output" readonly></textarea>
     </body>
 </html>

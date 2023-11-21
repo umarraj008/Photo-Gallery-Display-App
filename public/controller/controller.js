@@ -12,3 +12,7 @@ socket.on("disconnect", function() {
 socket.on("refresh", function() {
     location.reload();
 });
+
+socket.on("project-version", function(version) {
+    document.getElementById("projectVersion").innerHTML = "v" + version; 
+});

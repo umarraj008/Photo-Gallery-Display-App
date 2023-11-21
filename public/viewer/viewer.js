@@ -1,7 +1,8 @@
 const socket = io();
 var isFullscreen = false;
 var displayOn = true;
-var fadeDelay = "0.3s";
+var alwaysOn = false;
+var detectTimeInterval;
 
 // socket events
 socket.on("connect", function() {
@@ -16,6 +17,14 @@ socket.on("disconnect", function() {
 
 socket.on("refresh", function() {
     location.reload();
+});
+
+socket.on("always-on", function() {
+    if (detectTimeInterval != null) {
+        window.clearInterval(detectTimeInterval);
+    }
+    alwaysOn = true;
+    displayOn = true;
 });
 
 socket.on("update-image", function(link) {
@@ -84,6 +93,6 @@ function detectTime() {
 }
 
 window.onload = function() {
-    setInterval(detectTime, (600000));
+    detectTimeInterval = setInterval(detectTime, (600000));
     detectTime();
 }

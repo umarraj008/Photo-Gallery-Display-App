@@ -20,6 +20,12 @@ socket.on("admin-log", function(logStack) {
     for (let i = 0; i < logStack.length; i++) {
         output.innerHTML += logStack[i] + "\n";
     }
+
+    output.scrollTop = output.scrollHeight;
+});
+
+socket.on("project-version", function(version) {
+    document.getElementById("projectVersion").innerHTML = "v" + version; 
 });
 
 // functions
@@ -35,3 +41,6 @@ function stop() {
     socket.emit("admin-stop");
 }
 
+function restartServer() {
+    socket.emit("admin-restart-server");
+}
