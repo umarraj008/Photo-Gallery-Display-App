@@ -1,0 +1,25 @@
++===========================================================================+
+ TODO 2.0.0
++===========================================================================+
+ [ ] instead of manually adding images to list => read from folder
+ [x] Classify the app so server can restart 
+ [ ] update interval from controller or admin
+ [ ] photo transision
+ [ ] display if not connected to server
+ [ ] Getting node env to make display always on if debug mode
++===========================================================================+
+
++===========================================================================+
+ TODO For Future Version
++===========================================================================+
+ [ ] add image from controller
+ [ ] check added images for dupliactes in list
+ [ ] randomize/shuffle image order
+ [ ] enable disable image updates in admin console
+ [ ] edit shutdown time config
+ [ ] manage images in admin
+ [ ] brightness on certain times
+ [ ] show time
+ [ ] show timeline of photos in controller/admin
+ [ ] view server cpu/ram/storage stats
++===========================================================================+
