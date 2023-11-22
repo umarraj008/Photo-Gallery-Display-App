@@ -42,8 +42,8 @@ npm run deploy
 ```
 Clients must use the hosts IP address and port 3030 to access web pages:
 
-> [!NOTE]
-> Use ipconfig in CMD to find host ip for windows
+> [!TIP]
+> Use `ipconfig` in CMD to find host ip for windows
 
 ```
 // Example
