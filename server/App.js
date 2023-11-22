@@ -98,10 +98,10 @@ module.exports = class App {
             this.log("Device is Connected to Server");
             
             // Check if applicaiton is running in dev environment
-            if (process.env.NODE_ENV.trim() === "DEV") {
+            // if (process.env.NODE_ENV.trim() === "DEV") {
                 // Send always on to stop viewer from display off
-                this.sendToAll("always-on");
-            }
+                // this.sendToAll("always-on");
+            // }
 
             // Send project version and current image
             this.sendToAll("project-version", PROJECT.version);

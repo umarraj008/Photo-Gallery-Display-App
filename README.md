@@ -3,7 +3,18 @@
 A web app that displays your photos on a display such as old iPad
 
 
-<!-- ## About The Project -->
+## About The Project
+
+I have an old iPad mini and found that it was too old to use anymore. The operating system wouldnt update anymore therfore rendering it useless at downloading new apps. Therfore I wanted to repurpose it by making a photo gallery app. This is why i created a Node.js application that allows my iPad to display the images stored within the applicaiton. Furthermore, the app acompanies a client controller which allows my family and others to controll and add images to the application. Overall this project is fun and interesting and gives my iPad a whole new purpose in its life. 
+
+### How it works
+Within the Node.js application there are 3 main componenets.
+- The server (stores the images and controlls the main application and viewer)
+- The controller (allows user communication with the server to control the applicaiton)
+- The viewer (the display for the application)
+
+Here is a diagram of how this application works:
+![Diagram](projectImages/diagram.png)
 
 
 ## Built With
@@ -17,11 +28,36 @@ A web app that displays your photos on a display such as old iPad
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 
 
-<!-- ## Getting Started -->
+## Getting Started
 
+To get started first extract the Photo-Gallery-Display-App.zip.  
 
-<!-- ## Usage -->
+Then in CMD cd to the directory:
+```
+cd Photo-Gallery-Display-App
+```
+Now you can run the application::
+```
+npm run deploy
+```
+Clients must use the hosts IP address and port 3030 to access web pages:
 
+> [!NOTE]
+> Use ipconfig in CMD to find host ip for windows
+
+```
+// Example
+http://192.168.1.1:3030/
+
+// Default endpoint is client controller
+http://<host IP>:3030/
+
+// Viewer endpoint is for display view
+http://<host IP>:3030/viewer
+
+// Admin endpoint is for admin controller
+http://<host IP>:3030/admin
+```
 
 <!-- ## Roadmap -->
 
