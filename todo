@@ -1,18 +1,22 @@
 +===========================================================================+
  TODO 2.0.0
 +===========================================================================+
- [ ] instead of manually adding images to list => read from folder
+ [x] instead of manually adding images to list => read from folder
+ [x] Seperate photos inverall to its own class
  [x] Classify the app so server can restart 
  [ ] update interval from controller or admin
- [ ] photo transision
- [ ] display if not connected to server
- [ ] Getting node env to make display always on if debug mode
+ [x] photo transision
+ [x] display if not connected to server
+ [-] Getting node env to make display always on if debug mode
+ [ ] Comment the client files
+ [ ] Update readme
 +===========================================================================+
 
 +===========================================================================+
  TODO For Future Version
 +===========================================================================+
  [ ] add image from controller
+ [ ] Seperate logger into its own class
  [ ] check added images for dupliactes in list
  [ ] randomize/shuffle image order
  [ ] enable disable image updates in admin console
@@ -22,4 +26,9 @@
  [ ] show time
  [ ] show timeline of photos in controller/admin
  [ ] view server cpu/ram/storage stats
+ [ ] Client account logging in
+ [ ] Client account registering
+ [ ] Client accounts can add images to applicaiton
+ [ ] Store image references in database
+ [ ] Load images from database
 +===========================================================================+

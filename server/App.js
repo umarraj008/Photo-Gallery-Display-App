@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const PROJECT = require("../package.json");
+const PhotoManager = require("./PhotoManager");
 
 /**
  * This class contains the main App code and server communication with clients.
@@ -13,26 +14,16 @@ module.exports = class App {
      * @param {Events.EventEmitter} em Events Emmitter used to send events 
      */
     constructor(em) {
-        this.em = em;                         // Events Emmiter
-        this.app = express();                 // Express
-        this.io;                              // Socket.IO Server
-        this.port = process.env.PORT || 3030; // Host Port
-        this.address = "192.168.1.110";       // Host IP
-        this.server;                          // Express Server
-        this.intervalID;                      // Photos interval id
-        this.currentImage = 0;                // Index of current image displayed
-        this.photoInterval = 6000;            // How long an image is shown on display
-        this.logStack = [];                   // Array to store console logs
-
-
-        this.images = [
-            "Buff-Garfield-696x440.jpg",
-            "Bearbrick-Garfield-1000-Gold-Chrome-Ver.jpg",
-            "garf1.gif",
-            "phoneAspect.png",
-            "extremePhone.png",
-            "extremePhone2.png"
-        ];
+        this.em = em;                           // Events Emmiter
+        this.app = express();                   // Express
+        this.io;                                // Socket.IO Server
+        this.port = process.env.PORT || 3030;   // Host Port
+        this.address = "192.168.1.110";         // Host IP
+        this.server;                            // Express Server
+        this.intervalID;                        // Photos interval id
+        this.photoInterval = 6000;              // How long an image is shown on display
+        this.logStack = [];                     // Array to store console logs
+        this.photoManager = new PhotoManager(); // Photo Manager to manage the images
     }
 
     /**
@@ -40,6 +31,9 @@ module.exports = class App {
      * @returns {} Nothing is returned.
      */
     run() {
+        // Load images
+        this.photoManager.loadImagesFromFile();
+
         // Start Express hosting server
         this.startServer();
 
@@ -66,7 +60,13 @@ module.exports = class App {
 
             // Start main interval for photos loop
             this.intervalID = setInterval(() => {
-                this.photos();
+                // Update photo manager current image
+                this.photoManager.nextImage();
+
+                // Update clients that current image has changed
+                this.sendToAll("update-image", this.photoManager.getCurrentImage());
+                this.log("Updating Image: " + (this.photoManager.getCurrentImageIndex()+1));
+
             }, this.photoInterval);
         });
 
@@ -105,7 +105,7 @@ module.exports = class App {
 
             // Send project version and current image
             this.sendToAll("project-version", PROJECT.version);
-            this.sendToAll("update-image", this.images[this.currentImage]);
+            this.sendToAll("update-image", this.photoManager.getCurrentImage());
             
             // When device is disconnected
             socket.on("disconnect", () => {

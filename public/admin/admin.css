@@ -14,3 +14,9 @@ textarea {
     resize: vertical;
     height: 600px;
 }
+
+iframe {
+    aspect-ratio: 1024/768;
+    width: 15%;
+    height: 15%;
+}
