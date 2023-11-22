@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Test</title>
+        <title>Photo Gallery Display Admin Controller</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js" integrity="sha512-zoJXRvW2gC8Z0Xo3lBbao5+AS3g6YWr5ztKqaicua11xHo+AvE1b0lT9ODgrHTmNUxeCw0Ry4BGRYZfXu70weg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="./admin.js"></script>
         <link rel="stylesheet" href="./admin.css">
     </head>
     <body>
-        <h1>Admin</h1>
+        <h1>Admin Controller</h1>
+        <h2 id="projectVersion"></h2>
+        <iframe src="http://192.168.1.110:3030/viewer" title="Viewer" width="1024px" height="768px"></iframe>
         <button onclick="refresh()">Refresh</button>
         <button onclick="adminRefresh()">Admin Refresh</button>
+        <button onclick="restartServer()">Restart Server</button>
         <button onclick="stop()">Stop Server</button>
         <button onclick="window.open('../', '_blank');">Open Controller</button>
         <button onclick="window.open('../viewer', '_blank');">Open Viewer</button>
-        <iframe src="http://192.168.1.110:8080/viewer" title="Viewer"></iframe>
         <textarea id="output" readonly></textarea>
     </body>
 </html>

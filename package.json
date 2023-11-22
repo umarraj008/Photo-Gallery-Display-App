@@ -1,15 +1,16 @@
 {
   "name": "ipadphotoframe",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A way to display iphone album photos to display through browser",
   "main": "main.js",
   "scripts": {
-    "test": "node main",
-    "start": "node main"
+    "test": "SET NODE_ENV=TEST && node server/main.js",
+    "start": "SET NODE_ENV=DEV && node server/main.js",
+    "deploy": "SET NODE_ENV=PRODUCTION && npm install && node server/main.js"
   },
   "repository": {
     "type": "git",
-    "url": "umarraj008"
+    "url": "https://github.com/umarraj008/Photo-Gallery-Display-App"
   },
   "author": "Umar Rajput",
   "license": "ISC",

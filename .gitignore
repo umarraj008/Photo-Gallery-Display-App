@@ -2,6 +2,9 @@
 public/images/*
 !public/images/.gitkeep
 
+# Diagram
+Diagram/*
+
 # Logs
 logs
 *.log
