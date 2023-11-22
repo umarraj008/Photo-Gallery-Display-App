@@ -14,7 +14,7 @@ Within the Node.js application there are 3 main componenets.
 - The viewer (the display for the application)
 
 Here is a diagram of how this application works:
-![Diagram](projectImages/diagram.png)
+![Diagram](https://github.com/umarraj008/Photo-Gallery-Display-App/blob/main/ProjectImages/diagram.png?raw=true)
 
 
 ## Built With
