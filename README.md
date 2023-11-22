@@ -3,12 +3,12 @@
 
 ## About The Project
 
-I have an old iPad mini and found that it was too old to use anymore. The operating system wouldnt update anymore therfore rendering it useless at downloading new apps. Therfore I wanted to repurpose it by making a photo gallery app. This is why i created a Node.js application that allows my iPad to display the images stored within the applicaiton. Furthermore, the app acompanies a client controller which allows my family and others to controll and add images to the application. Overall this project is fun and interesting and gives my iPad a whole new purpose in its life. 
+I have an old iPad mini and found that it was too old to use anymore. The operating system wouldnt update anymore therefore rendering it useless at downloading new apps. Therefore I wanted to repurpose it by making a photo gallery app. This is why I created a Node.js application that allows my iPad to display the images stored within the application. Furthermore, the app accompanies a client controller which allows my family and others to control and add images to the application. Overall this project is fun and interesting and gives my iPad a whole new purpose in its life.
 
 ## How it works
-Within the Node.js application there are 3 main componenets.
-- The server (stores the images and controlls the main application and viewer)
-- The controller (allows user communication with the server to control the applicaiton)
+Within the Node.js application there are 3 main components.
+- The server (stores the images and controls the main application and viewer)
+- The controller (allows user communication with the server to control the application)
 - The viewer (the display for the application)
 
 Here is a diagram of how this application works:
