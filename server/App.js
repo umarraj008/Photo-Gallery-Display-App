@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const PROJECT = require("../package.json");
+const UploadManger = require("./UploadManager");
 const PhotoManager = require("./PhotoManager");
 
 /**
@@ -24,6 +25,7 @@ module.exports = class App {
         this.photoInterval = 6000;              // How long an image is shown on display
         this.logStack = [];                     // Array to store console logs
         this.photoManager = new PhotoManager(); // Photo Manager to manage the images
+        this.uploadManger = new UploadManger(); // Upload Manager to manage image uploads
     }
 
     /**
@@ -54,7 +56,7 @@ module.exports = class App {
             // Applicaiton starting logs
             this.log(PROJECT.name + " v" + PROJECT.version + " By " + PROJECT.author);
             this.log(PROJECT.description + "\n");
-            this.log("Application is running in: " + process.env.NODE_ENV + "mode \n");
+            // this.log("Application is running in: " + process.env.NODE_ENV + "mode \n");
             this.log("Server has started.");
             this.log("Listening at: " + this.address + ":" + this.port);
 
@@ -81,6 +83,19 @@ module.exports = class App {
 
         // Images endpoint
         this.app.use('/images', express.static(path.join(__dirname, './../public/images/')));
+        
+        // Image Upload endpoint
+        this.app.post('/image-upload', this.uploadManger.uploadImage.array('images'), (req, res) => {
+            this.log("User has Uploaded New Images");
+            res.redirect(req.header("Referer") || "/");
+            this.restartPhotoInterval();
+            // res.sendFile(path.join(__dirname, './../public/controller/index.html'));
+        }, (error, req, res, next) => {
+            this.log("User has Failed to Upload New Images", "ERROR");
+            // res.status(400).send({ error: error.message });
+            res.redirect(req.header("Referer") || "/");
+        });
+
     }
 
     /**
@@ -156,6 +171,22 @@ module.exports = class App {
     }
 
     /**
+     * Used to restart the photos loop interval.
+     * @returns {} Nothing is returned.
+     */
+    restartPhotoInterval() {
+        this.log("Restarting Photos Interval");
+
+        // Reload images in photo manager
+        this.photoManager.loadImagesFromFile();
+
+        // Update clients on new current image
+        this.sendToAll("update-image", this.photoManager.getCurrentImage());
+        this.log("Updating Image: " + (this.photoManager.getCurrentImageIndex()+1));
+
+    }
+
+    /**
      * Function to emit Socket.IO message to all clients.
      * @param {String} msg This will be the message you would like to send to clients that they will listen for.
      * @param {any} data This will be any data associated with your message.
@@ -168,9 +199,10 @@ module.exports = class App {
     /**
      * Adds a message to the log.
      * @param {String} msg This contains the message that you would like to log.   
+     * @param {String} type Optional, This contains the type of message.
      * @returns {} Nothing is returned.
      */
-    log(msg) {
+    log(msg, type) {
         // Get time
         var date = new Date();
         var hours = date.getHours(); 
@@ -178,11 +210,24 @@ module.exports = class App {
         var seconds = date.getSeconds(); 
         var time =  hours + ":" + minutes + ":" + seconds; 
 
-        // Add messsage to log stack
-        this.logStack.push("[INFO] (" + time + ") " + msg);
+        // Check if type is included
+        if (type != undefined) {
 
-        // Console log message
-        console.log("[INFO] (" + time + ") " + msg);
+            // Add messsage to log stack
+            this.logStack.push("[" + type + "] (" + time + ") " + msg);
+    
+            // Console log message
+            console.log("[" + type + "] (" + time + ") " + msg);
+
+        } else {
+            
+            // Add messsage to log stack
+            this.logStack.push("[INFO] (" + time + ") " + msg);
+    
+            // Console log message
+            console.log("[INFO] (" + time + ") " + msg);
+        
+        }
 
         // Send log stack to all clients
         this.sendToAll("admin-log", this.logStack);
@@ -190,8 +235,9 @@ module.exports = class App {
     
     /**
      * This funciton itterates the current photo and updates all clients that the current photo has changed.  
+     * @deprecated Photo Manger replaces this functionality.
      * @returns {} Nothing is returned.
-     */
+    */
     photos() {
         // Update current image
         this.currentImage++;

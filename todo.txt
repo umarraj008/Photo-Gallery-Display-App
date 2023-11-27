@@ -9,6 +9,19 @@
 [x] Getting node env to make display always on if debug mode
 [x] Comment the client files
 [x] Update readme
+
++===========================================================================+
+ TODO MAIN FEATURES
++===========================================================================+
+[x] Add images from controller to host
+[ ] Merge Admin and Controller into one
+[ ] Update Contorller styling
+[ ] View all images in controller
+[ ] Remove image from controller
+[ ] Shuffle images within server
+[ ] Save server settings to file
+[ ] Controller can adjust server settings
+
 +===========================================================================+
  TODO For Future Version
 +===========================================================================+
@@ -32,3 +45,13 @@
 [ ] Store image references in database
 [ ] Load images from database
 +===========================================================================+
+
+Server settings
+ip 
+port
+photo interval
+image update logs
+device connect logs
+shuffle
+shutdown timings
+show time
