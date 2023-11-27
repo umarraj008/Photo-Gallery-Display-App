@@ -19,6 +19,8 @@
 [ ] View all images in controller
 [ ] Remove image from controller
 [ ] Shuffle images within server
+[ ] Save server settings to file
+[ ] Controller can adjust server settings
 
 +===========================================================================+
  TODO For Future Version
