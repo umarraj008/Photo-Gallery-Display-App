@@ -37,7 +37,7 @@ cd Photo-Gallery-Display-App
 ```
 Now you can run the application::
 ```
-npm run deploy
+npm start
 ```
 Clients must use the hosts IP address and port 3030 to access web pages:
 
