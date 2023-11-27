@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 /**
- * Class to manage the photos
+ * Class to manage the photos.
  * @author Umar Rajput
  */
 module.exports = class PhotoManager {
@@ -14,8 +14,16 @@ module.exports = class PhotoManager {
         this.currentImage = 0; // Index of current image
     }
     
-    loadImagesFromFile(logCallback) {
+    loadImagesFromFile() {
+        // Images folder path
         const imagesFolderPath = "./public/images/";
+
+        // Clear images array
+        this.images = [];
+
+        // Reset current image
+        this.currentImage = 0;
+
         fs.readdir(imagesFolderPath, (err, files) => {
             
             // Check for error

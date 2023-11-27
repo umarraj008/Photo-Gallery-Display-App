@@ -1,12 +1,11 @@
 {
   "name": "ipadphotoframe",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A way to display iphone album photos to display through browser",
   "main": "main.js",
   "scripts": {
-    "test": "SET NODE_ENV=TEST && node server/main.js",
-    "start": "SET NODE_ENV=DEV && node server/main.js",
-    "deploy": "SET NODE_ENV=PRODUCTION && npm install && node server/main.js"
+    "test": "node server/main.js",
+    "start": "npm install && node server/main.js"
   },
   "repository": {
     "type": "git",
@@ -16,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
     "socket.io": "^4.7.2"
   }
 }
