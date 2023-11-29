@@ -2,6 +2,8 @@ const socket = io();
 var isFullscreen = false;
 var displayOn = true;
 var detectTimeInterval;
+var logStack = [];
+var numberOfLogsShownInCrash = 10;
 
 /**
  * Socket.IO events
@@ -10,18 +12,65 @@ var detectTimeInterval;
 // Client connect
 socket.on("connect", function() {
     console.log("Connected to Server");
-    document.getElementById("notConnectedContainer").style.display = "none";
+    document.getElementById("not-connected-container").style.opacity = 0;
+    // document.getElementById("not-connected-container").style.display = "none";
 });
 
 // Client disconnect
 socket.on("disconnect", function() {
     console.log("Disconnected to Server");
-    document.getElementById("notConnectedContainer").style.display = "flex";
+
+    // Get log container
+    var oldLogContainer = document.getElementById("not-connected-last-logs");
+    
+    // Get log container parent
+    var parent = oldLogContainer.parentNode;
+
+    // Remove old log container
+    parent.removeChild(oldLogContainer);
+
+    // Make new log container
+    var newLogContainer = document.createElement("div");
+    newLogContainer.setAttribute("id", "not-connected-last-logs");
+
+    // Make h2 for new log container
+    var h2 = document.createElement("h2");
+    h2.innerHTML = "Here were my last " + numberOfLogsShownInCrash + " logs:";
+
+    // Add h2 to new log container
+    newLogContainer.appendChild(h2);
+    newLogContainer.appendChild(document.createElement("br"));
+
+    // Add last 5 logs to new log container
+    for (var i = 0, j = ((logStack.length <= numberOfLogsShownInCrash) ? 0 : logStack.length-numberOfLogsShownInCrash); i < numberOfLogsShownInCrash; i++, j++) {
+        if (j > logStack.length || logStack[j] == undefined) continue;
+
+        var p = document.createElement("p");
+        p.innerHTML = logStack[j];
+        newLogContainer.appendChild(p);
+    }
+
+    // Add log container to parent
+    parent.appendChild(newLogContainer);
+
+    // Show not connected screen
+    document.getElementById("not-connected-container").style.opacity = 1;
+    // document.getElementById("not-connected-container").style.display = "flex";
+});
+
+// Project version
+socket.on("project-version", function(version) {
+    document.getElementById("not-connected-project-version").innerHTML = "Photo Gallery Display App v" + version + " - By Umar Rajput"; 
+});
+
+// Server logs
+socket.on("admin-log", function(data) {
+    logStack = data;
 });
 
 // Refresh
 socket.on("refresh", function() {
-    location.reload();
+    location.reload(true);
 });
 
 // Update image

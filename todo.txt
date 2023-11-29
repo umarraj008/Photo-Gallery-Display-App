@@ -13,14 +13,40 @@
 +===========================================================================+
  TODO MAIN FEATURES
 +===========================================================================+
++--------------------------------=< v2.1.0 >=-------------------------------+
 [x] Add images from controller to host
+
++--------------------------------=< v2.2.0 >=-------------------------------+
+[ ] better not connected screen
+
++--------------------------------=< v3.0.0 >=-------------------------------+
 [ ] Merge Admin and Controller into one
 [ ] Update Contorller styling
+
++--------------------------------=< v3.1.0 >=-------------------------------+
+[ ] confirmantionm or errror message when image upload or other command
+
++--------------------------------=< v3.2.0 >=-------------------------------+
 [ ] View all images in controller
-[ ] Remove image from controller
+
++--------------------------------=< v3.3.0 >=-------------------------------+
+[ ] Remove single image from controller
+
++--------------------------------=< v3.4.0 >=-------------------------------+
+[ ] Remove all images from controller
+
++--------------------------------=< v3.5.0 >=-------------------------------+
 [ ] Shuffle images within server
+
++--------------------------------=< v3.6.0 >=-------------------------------+
 [ ] Save server settings to file
+
++--------------------------------=< v3.7.0 >=-------------------------------+
 [ ] Controller can adjust server settings
+
+icons and logos
+manage images page
+blur image backgriund instade of black bars
 
 +===========================================================================+
  TODO For Future Version
