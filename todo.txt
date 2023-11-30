@@ -17,7 +17,11 @@
 [x] Add images from controller to host
 
 +--------------------------------=< v2.2.0 >=-------------------------------+
-[ ] better not connected screen
+[x] better not connected screen
+
++--------------------------------=< v2.2.1 >=-------------------------------+
+[x] cap server logs to value otherwise too many logs are sent
+[x] Remove iframe viewers from controller and admin
 
 +--------------------------------=< v3.0.0 >=-------------------------------+
 [ ] Merge Admin and Controller into one
@@ -45,32 +49,7 @@
 [ ] Controller can adjust server settings
 
 icons and logos
-manage images page
 blur image backgriund instade of black bars
-
-+===========================================================================+
- TODO For Future Version
-+===========================================================================+
-[ ] Save server app settings to file
-[ ] Manual configuration of port in server settings
-[ ] update interval from controller or admin
-[ ] add image from controller
-[ ] Seperate logger into its own class
-[ ] check added images for dupliactes in list
-[ ] randomize/shuffle image order
-[ ] enable disable image updates in admin console
-[ ] edit shutdown time config
-[ ] manage images in admin
-[ ] brightness on certain times
-[ ] show time
-[ ] show timeline of photos in controller/admin
-[ ] view server cpu/ram/storage stats
-[ ] Client account logging in
-[ ] Client account registering
-[ ] Client accounts can add images to applicaiton
-[ ] Store image references in database
-[ ] Load images from database
-+===========================================================================+
 
 Server settings
 ip 

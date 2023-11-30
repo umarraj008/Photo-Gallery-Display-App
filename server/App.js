@@ -24,6 +24,7 @@ module.exports = class App {
         this.intervalID;                        // Photos interval id
         this.photoInterval = 6000;              // How long an image is shown on display
         this.logStack = [];                     // Array to store console logs
+        this.maxLogs = 20;                      // How many logs can be saved and sent to clients
         this.photoManager = new PhotoManager(); // Photo Manager to manage the images
         this.uploadManger = new UploadManger(); // Upload Manager to manage image uploads
     }
@@ -228,6 +229,9 @@ module.exports = class App {
             console.log("[INFO] (" + time + ") " + msg);
         
         }
+
+        // Remove old logs to cap the ammount of logs saved
+        if (this.logStack.length > this.maxLogs) this.logStack.shift();
 
         // Send log stack to all clients
         this.sendToAll("admin-log", this.logStack);
