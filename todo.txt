@@ -60,3 +60,21 @@ device connect logs
 shuffle
 shutdown timings
 show time
+
+Home
+    Welcome message
+
+photos page
+    view photos
+    add photo
+    remove photo
+
+settings page
+    server settings
+    refresh all connected devices
+    restart server
+    stop server
+    open viewer
+    
+console page
+    console output
