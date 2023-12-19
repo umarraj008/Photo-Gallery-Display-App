@@ -13,6 +13,9 @@ function init() {
 }
 
 function setView(index, title) {
+    // Update current view variable
+    currentView = index;
+
     // Get view container
     var viewContainer = document.getElementById("view-container");
     
@@ -40,6 +43,19 @@ function setView(index, title) {
         document.getElementById("top-bar-container").style.display = "table-row";
         document.getElementById("top-bar-title").innerHTML = title;
     }
+}
+
+/**
+ * Function to add photo to photos container. 
+ * @param {String} path file path to image. 
+ */
+function addPhoto(path) {
+    var photoContainer = document.getElementById("photo-container");
+    var photo = makeElement("img")
+    photo.setAttribute("class", "photo-item");
+    photo.src = "./../images/" + path;
+    photo.loading = "lazy";
+    photoContainer.appendChild(photo);
 }
 
 // Window onload functin

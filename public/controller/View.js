@@ -54,15 +54,9 @@ class PhotosView extends View {
         photoContainer.setAttribute("id", "photo-container");
         view.appendChild(photoContainer);
 
-        // Photo Items
-        for (var i = 0; i < 100; i++) {
-            var testPhoto = makeElement("img")
-            testPhoto.setAttribute("class", "photo-item");
-            testPhoto.src = "../images/IMG_1128.jpeg___1701278780481.jpeg";
-            testPhoto.loading = "lazy";
-            photoContainer.appendChild(testPhoto);
-        }
-
+        // Get all photo paths
+        getAllImages();
+        
         return view;
     }
 }

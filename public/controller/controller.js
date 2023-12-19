@@ -53,6 +53,15 @@ socket.on("project-version", function(version) {
     }
 });
 
+// Get all images
+socket.on("recieve-all-images", function(data) {
+    if (data.length > 0 && currentView == 1) {
+        data.forEach(path => {
+            addPhoto(path);
+        });
+    }
+});
+
 /**
  * Functions
  */
@@ -87,4 +96,12 @@ function stopServer() {
  */
 function restartServer() {
     socket.emit("admin-restart-server");
+}
+
+/**
+ * Function to request for all images from the server.
+ * @returns {} Nothing is returned.
+ */
+function getAllImages() {
+    socket.emit("get-all-images");
 }

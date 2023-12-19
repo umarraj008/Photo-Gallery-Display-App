@@ -23,7 +23,7 @@
 }
 
 #container {
-    width: 100%;
+    width: calc(100dvh * (9/16));
     height: 100dvh;
     background-color: white;
     display: table;
