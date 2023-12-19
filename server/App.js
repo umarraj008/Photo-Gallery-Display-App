@@ -77,7 +77,7 @@ module.exports = class App {
         this.app.use('/', express.static(path.join(__dirname, './../public/controller')));
 
         // Admin endpoint
-        this.app.use('/admin', express.static(path.join(__dirname, './../public/admin/')));
+        this.app.use('/admin', express.static(path.join(__dirname, './../public/controller/')));
 
         // Viewer endpoint
         this.app.use('/viewer', express.static(path.join(__dirname, './../public/viewer/')));
@@ -167,6 +167,10 @@ module.exports = class App {
                 // Log and emit restart event
                 this.log("Restarting Server");
                 this.em.emit("restart");                
+            });
+
+            socket.on("get-all-images", () => {
+                this.sendToAll("recieve-all-images", this.photoManager.getAllImages());
             });
         });
     }

@@ -24,31 +24,23 @@
 [x] Remove iframe viewers from controller and admin
 
 +--------------------------------=< v3.0.0 >=-------------------------------+
-[ ] Merge Admin and Controller into one
-[ ] Update Contorller styling
+[x] Merge Admin and Controller into one - not really merge but diverted endpoint to controller
+[x] Update Contorller styling
+[x] Photos page shows all images on server
+[x] icons and logos
 
 +--------------------------------=< v3.1.0 >=-------------------------------+
-[ ] confirmantionm or errror message when image upload or other command
-
-+--------------------------------=< v3.2.0 >=-------------------------------+
-[ ] View all images in controller
-
-+--------------------------------=< v3.3.0 >=-------------------------------+
 [ ] Remove single image from controller
-
-+--------------------------------=< v3.4.0 >=-------------------------------+
 [ ] Remove all images from controller
 
-+--------------------------------=< v3.5.0 >=-------------------------------+
 [ ] Shuffle images within server
+[ ] confirmantionm or errror message when image upload or other command
 
-+--------------------------------=< v3.6.0 >=-------------------------------+
 [ ] Save server settings to file
-
-+--------------------------------=< v3.7.0 >=-------------------------------+
 [ ] Controller can adjust server settings
 
-icons and logos
+[ ] show time on black screen when dark
+
 blur image backgriund instade of black bars
 
 Server settings
@@ -60,3 +52,21 @@ device connect logs
 shuffle
 shutdown timings
 show time
+
+Home
+    Welcome message
+
+photos page
+    view photos
+    add photo
+    remove photo
+
+settings page
+    server settings
+    refresh all connected devices
+    restart server
+    stop server
+    open viewer
+    
+console page
+    console output

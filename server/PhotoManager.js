@@ -76,4 +76,12 @@ module.exports = class PhotoManager {
     getCurrentImage() {
         return this.images[this.currentImage];
     }
+
+    /**
+     * Function to get all image paths.
+     * @returns {Array} of all image paths.
+     */
+    getAllImages() {
+        return this.images;
+    }
 }
