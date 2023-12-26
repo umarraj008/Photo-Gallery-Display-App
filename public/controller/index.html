@@ -15,16 +15,27 @@
         <link rel="stylesheet" href="./controller.css">
     </head>
     <body>
+        <form id="uploadForm" action="/image-upload" method="POST" enctype="multipart/form-data" style="display: none;">
+            <input id="uploadFormInput" name="images" type="file" accept="image/*" onchange="addPhotosConfirmDialog()" multiple>
+            <input type="submit">
+        </form>
         <div id="wrapper">
             <div id="status-container">
                 <div id="status">
                     <p id="status-text">Not Connected</p>
                 </div>
             </div>
+            <div id="dialog-container">
+            </div>
             <div id="container">
                 <div id="top-bar-container">
                     <div id="top-bar-inner-container">
                         <h2 id="top-bar-title">Title</h2>
+                        <div id="top-bar-add-button-container">
+                            <div id="top-bar-add-button" onclick="addPhotoDialog()">
+                                <span class="material-symbols-outlined">add</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div id="view-container">

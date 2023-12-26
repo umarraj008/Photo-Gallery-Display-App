@@ -30,16 +30,19 @@
 [x] icons and logos
 
 +--------------------------------=< v3.1.0 >=-------------------------------+
+[-] Add image function
+[x] Fix load image doubles
+[x] Loading gif when loading images
 [ ] Remove single image from controller
 [ ] Remove all images from controller
+[-] confirmantionm or errror message when image upload or other command
+[ ] show time on black screen when dark
+[ ] update command
 
++--------------------------------=< v3.2.0 >=-------------------------------+
 [ ] Shuffle images within server
-[ ] confirmantionm or errror message when image upload or other command
-
 [ ] Save server settings to file
 [ ] Controller can adjust server settings
-
-[ ] show time on black screen when dark
 
 blur image backgriund instade of black bars
 

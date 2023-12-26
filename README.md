@@ -1,4 +1,4 @@
-<h1 align="center">Photo Gallery Display App v3.0.0</h1>
+<h1 align="center">Photo Gallery Display App v3.1.0</h1>
 <br>
 
 ## About The Project

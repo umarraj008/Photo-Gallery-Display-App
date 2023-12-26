@@ -1,8 +1,11 @@
 var views = [];
 var currentView = 0;
+var loadedImagesAlready = false;
+var loadingImage = new Image();
 
 function init() {
     var viewContainer = document.getElementById("view-container");
+    loadingImage.src = "./resources/Spinner-1s-204px.gif";
 
     views = [
         new HomeView(),
@@ -43,6 +46,13 @@ function setView(index, title) {
         document.getElementById("top-bar-container").style.display = "table-row";
         document.getElementById("top-bar-title").innerHTML = title;
     }
+
+    // Add button for photos page
+    if (index == 1) {
+        document.getElementById("top-bar-add-button-container").style.display = "flex";
+    } else {
+        document.getElementById("top-bar-add-button-container").style.display = "none";
+    }
 }
 
 /**
@@ -52,15 +62,28 @@ function setView(index, title) {
 function addPhoto(path) {
     var photoContainer = document.getElementById("photo-container");
     var photo = makeElement("img")
+
     photo.setAttribute("class", "photo-item");
-    photo.src = "./../images/" + path;
+    photo.src = loadingImage.src;
     photo.loading = "lazy";
+
+    // Load image
+    var image = new Image();
+    image.src = "./images/" + path;
+    image.onload = () => {
+        photo.src = image.src;
+    }
+
     photoContainer.appendChild(photo);
 }
 
 // Window onload functin
 window.onload = function() {
     init();
-    setView(0, null);
+    // setView(1, null);
+    setView(1, "Photos");
     // setView(2, "Console");
+    
+    // TESTING DIALOG
+    addPhotosConfirmDialog()
 }

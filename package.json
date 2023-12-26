@@ -1,6 +1,6 @@
 {
   "name": "ipadphotoframe",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "A way to display iphone album photos to display through browser",
   "main": "main.js",
   "scripts": {

@@ -63,17 +63,135 @@
 
 #top-bar-inner-container {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     height: 100%;
     width: 100%;
     border-bottom: 1px solid #e4e4e4;
+    pointer-events: none;
 }
 
 #top-bar-inner-container #top-bar-title {
     margin-left: 10px;
     font-weight: lighter;
     color: #313131;
+    user-select: none;
+}
+
+#top-bar-add-button-container {
+    display: none;
+    justify-content: right;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    /* background-color: orange; */
+}
+
+#top-bar-add-button:hover {
+    cursor: pointer;
+}
+#top-bar-add-button {
+    display: flex;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    z-index: 80;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #e5e5ea;
+    pointer-events: fill;
+    /* background-color: red; */
+}
+#top-bar-add-button:active {
+    background-color: #9e9e9e;
+}
+
+#top-bar-add-button span {
+    color: #007cff;
+    user-select: none;
+}
+
+/* DIALOG POPUPS */
+
+#dialog-container {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 85;
+    transition: 0.4s ease-in-out;
+}
+#dialog-item {
+    width: 300px;
+    height: 200px;
+    background-color: #f9f8f8;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+}
+
+#dialog-top {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    /* background-color: orange; */
+    user-select: none;
+}
+
+#dialog-bottom {
+    width: 100%;
+    height: 70px;
+    /* background-color: lime; */
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid #e4e4e4;
+    user-select: none;
+}
+
+#dialog-left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+    border-right: 1px solid #e4e4e4;
+    box-sizing: border-box;
+    user-select: none;
+    border-radius: 0px 0px 0px 15px;
+}
+#dialog-left:hover {
+    cursor: pointer;
+}
+#dialog-left:active {
+    background-color: #9e9e9e;
+}
+
+#dialog-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid #e4e4e4;
+    /* background-color: pink; */
+    border-radius: 0px 0px 15px 0px;
+    box-sizing: border-box;
+    user-select: none;
+}
+#dialog-right:hover {
+    cursor: pointer;
+}
+#dialog-right:active{
+    background-color: #9e9e9e;
 }
 
 /* BOTTOM NAVIGATION */
@@ -123,6 +241,7 @@
     position: absolute;
     width: 100%;
     z-index: 99;
+    pointer-events: none;
 }
 
 #status-container #status {
@@ -186,12 +305,43 @@
     background-color: white;
 }
 
+/* #photo-add-image-button-container {
+    background-color: lime;
+    width: 100%;
+    margin-bottom: 0px;
+    z-index: 80;
+    display: flex;
+    justify-content: right;
+    flex-wrap: nowrap;
+    position: absolute;
+    pointer-events: none;
+}
+
+#photo-add-image-button {
+    margin-right: 15px;
+    margin-bottom: 15px;
+    background-color: red;
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    pointer-events: auto;
+}
+#photo-add-image-button p {
+    line-height: 0px;
+} */
+
 .photo-item {
     background-image: white;
-    width: 100px;
-    height: 100px;
+    aspect-ratio: 1/1;
+    width: 100%;
+    /* height: 100px; */
     box-sizing: border-box;
     object-fit: cover;
+    user-select: none;
 }
 
 /* CONSOLE PAGE */
@@ -230,9 +380,9 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
-.settings-button:first-child {
-    /* margin-top: 20px; */
-}
+/* .settings-button:first-child {
+    margin-top: 20px;
+} */
 .settings-button {
     background-color: #e5e5ea;
     /* border: solid 2px #0a83ff; */
